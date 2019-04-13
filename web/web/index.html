@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Rulers Of States</title>
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <style>
+        :root {
+            --mdc-theme-primary: #164b8d;
+            --mdc-theme-secondary: #8d5716;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <script src="https://unpkg.com/vue-material"></script>
+
+    <script defer src="index.vue.dart.js"></script>
+</head>
+
+<body vuedart>
+    <m-typography id="app" style="width: 100%">
+        <topbar></topbar>
+        <div style="display: flex; height: 100vh"><router-view></router-view></div>
+    </m-typography>
+</body>

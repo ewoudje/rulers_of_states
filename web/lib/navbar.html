@@ -1,0 +1,25 @@
+<template vuedart>
+    <div>
+        <m-drawer-permanent style="height: 100%">
+            <m-drawer-content>
+                <m-list v-for="entry in entries" :key="entry.path">
+                    <router-link :to="entry.path" aria-current="page">
+                        <m-list-item :activated="isCurrentPage(entry)">
+                            <i slot="graphic" class="material-icons md-24" aria-hidden="true">{{entry.icon}}</i>
+                            <span slot="text" >{{entry.title}}</span>
+                        </m-list-item>
+                    </router-link>
+                </m-list>
+            </m-drawer-content>
+        </m-drawer-permanent>
+    </div>
+</template>
+
+<style scoped>
+
+    a {
+        color: inherit !important;
+        text-decoration: none;
+    }
+
+</style>

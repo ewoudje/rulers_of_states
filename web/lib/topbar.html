@@ -1,0 +1,27 @@
+<template vuedart>
+        <m-top-app-bar>
+            <router-link to="/" aria-current="page">
+                <img class="icon" src="logo.png">
+                <span class="title">Rulers of States</span>
+            </router-link>
+            <section slot="actions" v-for="entry in entries" :key="entry.path">
+                <router-link :to="entry.path" class="material-icons" aria-label="entry.title">{{entry.icon}}</router-link>
+            </section>
+        </m-top-app-bar>
+</template>
+
+<style scoped>
+
+    a {
+        color: inherit !important;
+        text-decoration: none;
+    }
+
+    .icon {
+        width: 32px;
+        height: auto;
+        vertical-align: middle;
+    }
+
+
+</style>

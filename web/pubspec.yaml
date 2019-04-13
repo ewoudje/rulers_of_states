@@ -1,0 +1,22 @@
+name: ros_web
+version: 0.0.1
+description: My epic website game!!
+author: ewoudje
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+dependencies:
+  vue: '0.4.1'
+  vdmc: any
+  json_annotation: ^2.0.0
+  ros_client:
+    path: ../client
+
+dev_dependencies:
+  build_runner: any
+  build_web_compilers: any
+
+dependency_overrides:
+  vdmc:
+    git:
+      url: https://github.com/kirbyfan64/vdmc.git
+      path: vdmc

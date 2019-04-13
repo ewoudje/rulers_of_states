@@ -1,0 +1,13 @@
+name: ros_client
+version: 0.0.1
+description: My epic game!! (Client Side)
+author: ewoudje
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  ros_core:
+    path: ../core
+
+dev_dependencies:
+  test: ^1.0.0
