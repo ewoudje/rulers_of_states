@@ -56,7 +56,7 @@ class _MilitaryTechnology {
 
   int power;
 
-  MilitaryTechnologyType type;
+  //MilitaryTechnologyType type; //TODO Fix this, aqueduct document does not work when enabling this
 
   ManagedSet<MilitaryUnit> usedIn;
 }

@@ -12,6 +12,7 @@ Dart_Packages.xml
 .DS_Store
 .idea/
 *.aqueduct.pid
+.aqueduct_spec
 old/
 .dart_tool
 *.iml

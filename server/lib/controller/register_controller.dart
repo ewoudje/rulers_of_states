@@ -9,12 +9,7 @@ class RegisterController extends ResourceController {
   final AuthServer authServer;
 
   @Operation.post()
-  Future<Response> getStatus(@Bind.body(ignore: ["id"]) User user) async {
-
-    if (user.username == null || user.password == null) {
-      return Response.badRequest(
-          body: {"error": "username and password required."});
-    }
+  Future<Response> register(@Bind.body(reject: ['id', 'state', 'oldState'], require: ['username', 'password', 'email']) User user) async {
 
     user
       ..salt = AuthUtility.generateRandomSalt()
@@ -22,5 +17,15 @@ class RegisterController extends ResourceController {
     final outUser = await Query(context, values: user).insert();
 
     return Response.ok(outUser);
+  }
+
+  @override
+  Map<String, APIResponse> documentOperationResponses(APIDocumentContext context, Operation operation) {
+    if (operation.method == "GET") {
+      return {
+        "200": APIResponse.schema("The user has been registerd!", User().documentSchema(context))
+      };
+    }
+    return null;
   }
 }

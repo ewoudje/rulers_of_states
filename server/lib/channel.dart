@@ -8,10 +8,6 @@ import 'package:ros_server/model/user.dart';
 
 import 'ros_server.dart';
 
-/// This type initializes an application.
-///
-/// Override methods in this class to set up routes and initialize services like
-/// database connections. See http://aqueduct.io/docs/http/channel/.
 class ServerChannel extends ApplicationChannel {
   ManagedContext context;
   AuthServer authServer;
@@ -54,6 +50,11 @@ class ServerChannel extends ApplicationChannel {
 
     router
         .route('/:state/status')
+        .link(() => Authorizer.bearer(authServer))
+        .link(() => StatusController(context));
+
+    router
+        .route('/status')
         .link(() => Authorizer.bearer(authServer))
         .link(() => StatusController(context));
 

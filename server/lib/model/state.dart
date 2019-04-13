@@ -31,7 +31,7 @@ class State extends ManagedObject<_State> implements _State {
       var tech = await (Query<MilitaryTechnology>(transaction)
         ..values.name = "Rocks"
         ..values.power = 1
-        ..values.type = MilitaryTechnologyType.INFANTRY
+        //..values.type = MilitaryTechnologyType.INFANTRY
         ..values.military = military
       ).insert();
 
