@@ -21,7 +21,7 @@ class RegisterController extends ResourceController {
 
   @override
   Map<String, APIResponse> documentOperationResponses(APIDocumentContext context, Operation operation) {
-    if (operation.method == "GET") {
+    if (operation.method == "POST") {
       return {
         "200": APIResponse.schema("The user has been registerd!", User().documentSchema(context))
       };
