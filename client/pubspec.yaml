@@ -8,6 +8,8 @@ environment:
 dependencies:
   ros_core:
     path: ../core
+  ros_rest_api:
+    path: ../rest-api
 
 dev_dependencies:
   test: ^1.0.0

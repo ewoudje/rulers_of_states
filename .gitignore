@@ -13,6 +13,7 @@ Dart_Packages.xml
 .idea/
 *.aqueduct.pid
 .aqueduct_spec
+.build
 old/
 .dart_tool
 *.iml

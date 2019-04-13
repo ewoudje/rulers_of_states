@@ -1,13 +1,19 @@
 import os
 import sys
+from urllib import request
 
 projectParts = [
     "core",
     "server",
     "client",
     "web",
-    "mobile"
+    "mobile",
+    "rest-api"
 ]
+
+if sys.argv[1] == "setup":
+    os.makedirs('.build', exist_ok=True)
+    request.urlretrieve("http://central.maven.org/maven2/org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar", ".build/openapi-generator.jar")
 
 if sys.argv[1] == "update":
     for part in projectParts:
@@ -22,12 +28,9 @@ if sys.argv[1] == "web":
 if sys.argv[1] == "server":
     os.system(f"cd server && aqueduct serve")
 
-#if sys.argv[1] == "gen":
-#        files = ""
-#    for file in os.listdir(f"protobuf"):
-#        if file.endswith(".proto"):
-#            files = files + " " + file
-#    os.system(f"cd protobuf && protoc -I=. --dart_out=gen {files}")
-#    os.system(f"cp -r protobuf/gen server/lib/")
-#    os.system(f"cp -r protobuf/gen client/lib/")
-#    os.system(f"cd server && pub run build_runner build")
+if sys.argv[1] == "gen":
+    os.system(f"cd server && aqueduct document --machine > ../.build/document.json")
+    os.system(f"cd .build && java -jar openapi-generator.jar generate -i document.json -g dart -o ../rest-api -c ../rest-api/config.json")
+    os.remove("rest-api/.gitignore")
+    os.remove("rest-api/git_push.sh")
+    os.remove("rest-api/README.md")
