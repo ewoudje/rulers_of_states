@@ -1,0 +1,102 @@
+<template vuedart>
+    <div v-if="busy" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+        <div style="width: 100px; height: 100px">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+                <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+                <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+                <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+            </svg>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+    svg {
+        position: relative;
+        top: 50px;
+        left: 50px;
+        -webkit-transform: translate(-50px, -50px) rotate(45deg) scale(1);
+        transform: translate(-50px, -50px) rotate(45deg) scale(1);
+    }
+
+    .stroke-still {
+        stroke: #efefef;
+    }
+
+    .stroke-animation {
+        -webkit-animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+        animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-delay: 0;
+        animation-delay: 0;
+        -webkit-animation-direction: normal;
+        animation-direction: normal;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+    }
+
+    @-webkit-keyframes stroke-spacing {
+        0% {
+            stroke-dasharray: 0 200;
+        }
+        45% {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 200 200;
+        }
+        90% {
+            stroke-dashoffset: -200;
+            stroke-dasharray: 200 200;
+        }
+        100% {
+            stroke-dashoffset: -200;
+            stroke-dasharray: 200 200;
+        }
+    }
+
+    @keyframes stroke-spacing {
+        0% {
+            stroke-dasharray: 0 200;
+        }
+        45% {
+            stroke-dashoffset: 0;
+            stroke-dasharray: 200 200;
+        }
+        90% {
+            stroke-dashoffset: -200;
+            stroke-dasharray: 200 200;
+        }
+        100% {
+            stroke-dashoffset: -200;
+            stroke-dasharray: 200 200;
+        }
+    }
+
+    @-webkit-keyframes stroke-color {
+        0%  { stroke: var(--mdc-theme-primary); }
+        24% { stroke: var(--mdc-theme-primary); }
+        25% { stroke: var(--mdc-theme-secondary); }
+        49% { stroke: var(--mdc-theme-secondary); }
+        50% { stroke: var(--mdc-theme-primary); }
+        74% { stroke: var(--mdc-theme-primary); }
+        75% { stroke: var(--mdc-theme-secondary); }
+        99% { stroke: var(--mdc-theme-secondary); }
+    }
+
+    @keyframes stroke-color {
+        0%  { stroke: var(--mdc-theme-primary); }
+        24% { stroke: var(--mdc-theme-primary); }
+        25% { stroke: var(--mdc-theme-secondary); }
+        49% { stroke: var(--mdc-theme-secondary); }
+        50% { stroke: var(--mdc-theme-primary); }
+        74% { stroke: var(--mdc-theme-primary); }
+        75% { stroke: var(--mdc-theme-secondary); }
+        99% { stroke: var(--mdc-theme-secondary); }
+    }
+
+</style>

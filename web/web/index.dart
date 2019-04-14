@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:ros_web/utils/load.dart';
 import 'package:vue/vue.dart';
 import 'package:vue/plugins/vue_router.dart';
 
