@@ -8,12 +8,12 @@ class StatusController extends ResourceController {
   final ManagedContext context;
 
   @Operation.get()
-  Future<Response> getSelfStatus() async {
+  Future<Response> getSelfStatus({@Bind.query("turns-ago") int turnsAgo = 0}) async {
     var state = await (Query<State>(context)
-      ..where((t) => t.military.id).equalTo(request.authorization.ownerID)
-      ..join(object: (a) => a.people)
-      ..join(object: (a) => a.military)
-      ..join(object: (a) => a.economics)
+      ..where((t) => t.user.id).equalTo(request.authorization.ownerID)
+      ..join(set: (a) => a.people).where((t) => t.turnsAgo).equalTo(turnsAgo)
+      ..join(set: (a) => a.military).where((t) => t.turnsAgo).equalTo(turnsAgo)
+      ..join(set: (a) => a.economics).where((t) => t.turnsAgo).equalTo(turnsAgo)
     ).fetchOne();
 
     if (state == null)
@@ -23,15 +23,15 @@ class StatusController extends ResourceController {
   }
 
   @Operation.get('state')
-  Future<Response> getStatus(@Bind.path('state') int id) async {
+  Future<Response> getStatus(@Bind.path('state') int id, {@Bind.query("turns-ago") int turnsAgo = 0}) async {
     if (!request.authorization.isAuthorizedForScope('users'))
       return Response.forbidden();
 
     var state = await (Query<State>(context)
         ..where((t) => t.id).equalTo(id)
-        ..join(object: (a) => a.people)
-        ..join(object: (a) => a.military)
-        ..join(object: (a) => a.economics)
+        ..join(set: (a) => a.people).where((t) => t.turnsAgo).equalTo(turnsAgo)
+        ..join(set: (a) => a.military).where((t) => t.turnsAgo).equalTo(turnsAgo)
+        ..join(set: (a) => a.economics).where((t) => t.turnsAgo).equalTo(turnsAgo)
     ).fetchOne();
 
     if (state == null)

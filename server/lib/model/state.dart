@@ -53,10 +53,10 @@ class State extends ManagedObject<_State> implements _State {
 
       final query = Query<State>(transaction)
         ..where((t) => t.id).equalTo(state.id)
-        ..join(object: (t) => t.people)
-        ..join(object: (t) => t.economics);
+        ..join(set: (t) => t.people)
+        ..join(set: (t) => t.economics);
 
-      query.join(object: (t) => t.military)
+      query.join(set: (t) => t.military)
         ..join(set: (t) => t.technologies)
         ..join(set: (t) => t.units)
       ;
@@ -73,15 +73,18 @@ class _State {
   @Column(unique: true)
   String name;
 
+  @Column(nullable: true)
+  String description;
+
   User user;
   User ouser;
 
   @Column()
   int size;
 
-  People people;
-  Military military;
-  Economics economics;
+  ManagedSet<People> people;
+  ManagedSet<Military> military;
+  ManagedSet<Economics> economics;
 
   ManagedSet<Law> laws;
 }

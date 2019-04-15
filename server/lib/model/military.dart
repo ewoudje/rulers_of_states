@@ -8,6 +8,8 @@ class _Military {
   @primaryKey
   int id;
 
+  int turnsAgo;
+
   @Relate(#military, onDelete: DeleteRule.cascade)
   State state;
 

@@ -8,9 +8,10 @@ class MilitaryController extends ResourceController {
   final ManagedContext context;
 
   @Operation.get('state')
-  Future<Response> getUnits(@Bind.path('state') int id) async {
+  Future<Response> getUnits(@Bind.path('state') int id, {@Bind.query("turns-ago") int turnsAgo = 0}) async {
     final query = (Query<MilitaryUnit>(context)
         ..where((t) => t.military.state.id).equalTo(id)
+        ..where((t) => t.military.turnsAgo).equalTo(turnsAgo)
     );
 
     if (!request.authorization.isAuthorizedForScope('state:military.read'))
@@ -25,7 +26,7 @@ class MilitaryController extends ResourceController {
   }
 
   @Operation.get('state', 'unit')
-  Future<Response> getUnit(@Bind.path('state') int id, @Bind.path('unit') int unitId) async {
+  Future<Response> getUnit(@Bind.path('state') int id, @Bind.path('unit') int unitId, {@Bind.query("turns-ago") int turnsAgo = 0}) async {
     final query = Query<MilitaryUnit>(context)
         ..where((t) => t.military.state.id).equalTo(id)
         ..where((t) => t.id).equalTo(unitId)

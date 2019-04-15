@@ -8,6 +8,8 @@ class _People {
   @primaryKey
   int id;
 
+  int turnsAgo;
+
   int happiness;
 
   int quantity;

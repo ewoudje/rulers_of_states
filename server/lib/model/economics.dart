@@ -8,6 +8,8 @@ class _Economics {
   @primaryKey
   int id;
 
+  int turnsAgo;
+
   @Relate(#economics, onDelete: DeleteRule.cascade)
   State state;
 }
