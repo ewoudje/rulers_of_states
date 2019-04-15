@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.2"
+  chartjs:
+    dependency: "direct main"
+    description:
+      name: chartjs
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.1"
   cli_repl:
     dependency: transitive
     description:
@@ -203,7 +210,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.0+2"
+    version: "0.11.3+17"
   http_multi_server:
     dependency: transitive
     description:
@@ -355,6 +362,13 @@ packages:
     dependency: transitive
     description:
       path: "..\\core"
+      relative: true
+    source: path
+    version: "0.0.1"
+  ros_rest_api:
+    dependency: transitive
+    description:
+      path: "..\\rest-api"
       relative: true
     source: path
     version: "0.0.1"

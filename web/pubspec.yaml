@@ -8,6 +8,7 @@ dependencies:
   vue: '0.4.1'
   vdmc: any
   json_annotation: ^2.0.0
+  chartjs: any
   ros_client:
     path: ../client
 
