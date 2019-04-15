@@ -5,7 +5,7 @@
                 <span class="title">Rulers of States</span>
             </router-link>
             <section slot="actions" v-for="entry in entries" :key="entry.path">
-                <router-link :to="entry.path" class="material-icons" aria-label="entry.title">{{entry.icon}}</router-link>
+                <router-link :to="entry.path" class="material-icons" :aria-label="entry.title">{{entry.icon}}</router-link>
             </section>
         </m-top-app-bar>
 </template>
