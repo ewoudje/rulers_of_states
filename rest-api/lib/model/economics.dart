@@ -4,23 +4,27 @@ class Economics {
   /* This is the primary identifier for this object.  */
   int id = null;
   
+  int turnsAgo = null;
+  
   State state = null;
   Economics();
 
   @override
   String toString() {
-    return 'Economics[id=$id, state=$state, ]';
+    return 'Economics[id=$id, turnsAgo=$turnsAgo, state=$state, ]';
   }
 
   Economics.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id = json['id'];
+    turnsAgo = json['turnsAgo'];
     state = new State.fromJson(json['state']);
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
+      'turnsAgo': turnsAgo,
       'state': state
     };
   }

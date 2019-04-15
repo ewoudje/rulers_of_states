@@ -9,6 +9,7 @@ import 'package:ros_rest_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | This is the primary identifier for this object.  | [optional] [default to null]
+**turnsAgo** | **int** |  | [optional] [default to null]
 **state** | [**State**](State.md) |  | [optional] [default to null]
 **units** | [**List&lt;MilitaryUnit&gt;**](MilitaryUnit.md) |  | [optional] [default to []]
 **technologies** | [**List&lt;MilitaryTechnology&gt;**](MilitaryTechnology.md) |  | [optional] [default to []]

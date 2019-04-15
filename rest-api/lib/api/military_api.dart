@@ -10,7 +10,7 @@ class MilitaryApi {
   /// 
   ///
   /// 
-  Future<MilitaryUnit1> getUnit(int state, int unit) async {
+  Future<MilitaryUnit1> getUnit(int state, int unit, { int turnsAgo }) async {
     Object postBody;
 
     // verify required params are set
@@ -28,6 +28,9 @@ class MilitaryApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(turnsAgo != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "turns-ago", turnsAgo));
+    }
 
     List<String> contentTypes = [];
 
@@ -63,7 +66,7 @@ class MilitaryApi {
   /// 
   ///
   /// 
-  Future<List<MilitaryUnit1>> getUnits(int state) async {
+  Future<List<MilitaryUnit1>> getUnits(int state, { int turnsAgo }) async {
     Object postBody;
 
     // verify required params are set
@@ -78,6 +81,9 @@ class MilitaryApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(turnsAgo != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "turns-ago", turnsAgo));
+    }
 
     List<String> contentTypes = [];
 

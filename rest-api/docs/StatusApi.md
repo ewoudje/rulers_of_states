@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getSelfStatus**
-> State1 getSelfStatus()
+> State1 getSelfStatus(turnsAgo)
 
 
 
@@ -25,9 +25,10 @@ import 'package:ros_rest_api/api.dart';
 //ros_rest_api.api.Configuration.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var api_instance = new StatusApi();
+var turnsAgo = 56; // int | 
 
 try { 
-    var result = api_instance.getSelfStatus();
+    var result = api_instance.getSelfStatus(turnsAgo);
     print(result);
 } catch (e) {
     print("Exception when calling StatusApi->getSelfStatus: $e\n");
@@ -35,7 +36,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **turnsAgo** | **int**|  | [optional] [default to null]
 
 ### Return type
 
@@ -53,7 +57,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStatus**
-> State1 getStatus(state)
+> State1 getStatus(state, turnsAgo)
 
 
 
@@ -65,9 +69,10 @@ import 'package:ros_rest_api/api.dart';
 
 var api_instance = new StatusApi();
 var state = 56; // int | 
+var turnsAgo = 56; // int | 
 
 try { 
-    var result = api_instance.getStatus(state);
+    var result = api_instance.getStatus(state, turnsAgo);
     print(result);
 } catch (e) {
     print("Exception when calling StatusApi->getStatus: $e\n");
@@ -79,6 +84,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state** | **int**|  | [default to null]
+ **turnsAgo** | **int**|  | [optional] [default to null]
 
 ### Return type
 

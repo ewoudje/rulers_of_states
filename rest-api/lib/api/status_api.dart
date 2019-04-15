@@ -10,7 +10,7 @@ class StatusApi {
   /// 
   ///
   /// 
-  Future<State1> getSelfStatus() async {
+  Future<State1> getSelfStatus({ int turnsAgo }) async {
     Object postBody;
 
     // verify required params are set
@@ -22,6 +22,9 @@ class StatusApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(turnsAgo != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "turns-ago", turnsAgo));
+    }
 
     List<String> contentTypes = [];
 
@@ -57,7 +60,7 @@ class StatusApi {
   /// 
   ///
   /// 
-  Future<State1> getStatus(int state) async {
+  Future<State1> getStatus(int state, { int turnsAgo }) async {
     Object postBody;
 
     // verify required params are set
@@ -72,6 +75,9 @@ class StatusApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    if(turnsAgo != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "turns-ago", turnsAgo));
+    }
 
     List<String> contentTypes = [];
 

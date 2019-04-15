@@ -6,36 +6,39 @@ class State1 {
   /* No two objects may have the same value for this field.  */
   String name = null;
   
+  String description = null;
+  
   int size = null;
   
   User user = null;
   
   User ouser = null;
   
-  People people = null;
+  List<People> people = [];
   
-  Military military = null;
+  List<Military> military = [];
   
-  Economics economics = null;
+  List<Economics> economics = [];
   
   List<Law> laws = [];
   State1();
 
   @override
   String toString() {
-    return 'State1[id=$id, name=$name, size=$size, user=$user, ouser=$ouser, people=$people, military=$military, economics=$economics, laws=$laws, ]';
+    return 'State1[id=$id, name=$name, description=$description, size=$size, user=$user, ouser=$ouser, people=$people, military=$military, economics=$economics, laws=$laws, ]';
   }
 
   State1.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id = json['id'];
     name = json['name'];
+    description = json['description'];
     size = json['size'];
     user = new User.fromJson(json['user']);
     ouser = new User.fromJson(json['ouser']);
-    people = new People.fromJson(json['people']);
-    military = new Military.fromJson(json['military']);
-    economics = new Economics.fromJson(json['economics']);
+    people = People.listFromJson(json['people']);
+    military = Military.listFromJson(json['military']);
+    economics = Economics.listFromJson(json['economics']);
     laws = Law.listFromJson(json['laws']);
   }
 
@@ -43,6 +46,7 @@ class State1 {
     return {
       'id': id,
       'name': name,
+      'description': description,
       'size': size,
       'user': user,
       'ouser': ouser,

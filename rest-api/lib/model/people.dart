@@ -4,6 +4,8 @@ class People {
   /* This is the primary identifier for this object.  */
   int id = null;
   
+  int turnsAgo = null;
+  
   int happiness = null;
   
   int quantity = null;
@@ -13,12 +15,13 @@ class People {
 
   @override
   String toString() {
-    return 'People[id=$id, happiness=$happiness, quantity=$quantity, state=$state, ]';
+    return 'People[id=$id, turnsAgo=$turnsAgo, happiness=$happiness, quantity=$quantity, state=$state, ]';
   }
 
   People.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id = json['id'];
+    turnsAgo = json['turnsAgo'];
     happiness = json['happiness'];
     quantity = json['quantity'];
     state = new State.fromJson(json['state']);
@@ -27,6 +30,7 @@ class People {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
+      'turnsAgo': turnsAgo,
       'happiness': happiness,
       'quantity': quantity,
       'state': state

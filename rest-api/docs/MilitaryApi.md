@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getUnit**
-> MilitaryUnit1 getUnit(state, unit)
+> MilitaryUnit1 getUnit(state, unit, turnsAgo)
 
 
 
@@ -27,9 +27,10 @@ import 'package:ros_rest_api/api.dart';
 var api_instance = new MilitaryApi();
 var state = 56; // int | 
 var unit = 56; // int | 
+var turnsAgo = 56; // int | 
 
 try { 
-    var result = api_instance.getUnit(state, unit);
+    var result = api_instance.getUnit(state, unit, turnsAgo);
     print(result);
 } catch (e) {
     print("Exception when calling MilitaryApi->getUnit: $e\n");
@@ -42,6 +43,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state** | **int**|  | [default to null]
  **unit** | **int**|  | [default to null]
+ **turnsAgo** | **int**|  | [optional] [default to null]
 
 ### Return type
 
@@ -59,7 +61,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUnits**
-> List<MilitaryUnit1> getUnits(state)
+> List<MilitaryUnit1> getUnits(state, turnsAgo)
 
 
 
@@ -71,9 +73,10 @@ import 'package:ros_rest_api/api.dart';
 
 var api_instance = new MilitaryApi();
 var state = 56; // int | 
+var turnsAgo = 56; // int | 
 
 try { 
-    var result = api_instance.getUnits(state);
+    var result = api_instance.getUnits(state, turnsAgo);
     print(result);
 } catch (e) {
     print("Exception when calling MilitaryApi->getUnits: $e\n");
@@ -85,6 +88,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state** | **int**|  | [default to null]
+ **turnsAgo** | **int**|  | [optional] [default to null]
 
 ### Return type
 

@@ -4,6 +4,8 @@ class Military {
   /* This is the primary identifier for this object.  */
   int id = null;
   
+  int turnsAgo = null;
+  
   State state = null;
   
   List<MilitaryUnit> units = [];
@@ -13,12 +15,13 @@ class Military {
 
   @override
   String toString() {
-    return 'Military[id=$id, state=$state, units=$units, technologies=$technologies, ]';
+    return 'Military[id=$id, turnsAgo=$turnsAgo, state=$state, units=$units, technologies=$technologies, ]';
   }
 
   Military.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     id = json['id'];
+    turnsAgo = json['turnsAgo'];
     state = new State.fromJson(json['state']);
     units = MilitaryUnit.listFromJson(json['units']);
     technologies = MilitaryTechnology.listFromJson(json['technologies']);
@@ -27,6 +30,7 @@ class Military {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
+      'turnsAgo': turnsAgo,
       'state': state,
       'units': units,
       'technologies': technologies
